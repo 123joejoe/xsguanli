@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h1>欢迎进入学生管理系统</h1>
+
+<div>
+    {% csrf_token %}
+   <a href="/add">添加学生信息</a><br>
+   <a href="/delete">删除学生信息</a><br>
+   <a href="/change">修改学生信息</a><br>
+   <a href="/find">查询学生信息</a><br>
+</div>
+
+
+<table>
+    {% csrf_token %}
+   <tr>
+<th id="student_id">学号</th>
+<th>姓名</th>
+<th>性别</th>
+<th>年龄</th>
+<th>专业</th>
+<th>城市</th>
+   </tr>
+
+  {% for s in stu %}
+
+
+
+<tr>
+<td id="id"> {{ s.student_id }}  </td>
+<td> {{ s.name }}  </td>
+<td> {{ s.gender }}  </td>
+<td> {{ s.age }}  </td>
+<td> {{ s.major }}  </td>
+<td> {{ s.city }}  </td>
+</tr>
+  {% endfor %}
+
+</table>
+<br>
+
+<form method="post" action="/weather_check">{% csrf_token %}
+    {% csrf_token %}
+请输入要查询天气的城市<input type="text" name="city_name" placeholder="请输入要查询天气的城市名字"><br/>
+<input type="submit" value="提交"><br/>
+<table>
+    {% csrf_token %}
+
+   {% for f in final %}
+
+
+    <tr>
+<th></th>
+
+<tr>
+<td> {{ f }}  </td>
+</tr>
+{% endfor %}
+
+</body>
+</html>

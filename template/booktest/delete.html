@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除学生信息</title>
+</head>
+<body>
+<h1>请输入要删除学生的学号</h1>
+<form method="post" action="/delete_check">
+    {% csrf_token %}
+学生学号<input type="text" name="student_id" placeholder="请输入要删除的学生学号">
+<input type="submit" value="确定">
+</form>
+<a href="/index">返回</a>
+<div>
+    {% if re %}
+    {{ re }}
+    {% endif %}
+</div>
+</body>
+</html>

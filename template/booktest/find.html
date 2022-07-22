@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找学生信息</title>
+</head>
+<body>
+<form method="post" action="/find_check">
+    {% csrf_token %}
+学生学号<input type="text" name="student_id" placeholder="请输入学生学号"><br/>
+<input type="submit" value="提交"><a href="/index">返回</a><br/>
+<ul>
+        <li>学号： {{ data.student_id }}</li>
+        <li>姓名： {{ data.name }}</li>
+        <li>性别： {{ data.gender_get_display }}</li>
+        <li>年龄： {{ data.age }}</li>
+        <li>专业： {{ data.major }}</li>
+        <li>城市： {{ data.city }}</li>
+</ul>
+{% if re %}
+    {{ re }}
+{% endif %}
+
+</body>
+</html>
